@@ -5,10 +5,13 @@ async function getTranscript(videoUrl) {
         // Get the video ID from the URL
         const videoId = videoUrl.split('v=')[1].split('&')[0];
 
-        // Download the transcript
-        const transcript = await YouTubeTranscriptApi.getTranscript(videoId);
+        // Get the transcript data
+        const transcriptData = await YouTubeTranscriptApi.getTranscript(videoId);
 
-        console.log('Transcript downloaded successfully.');
+        // Extract the text content from the transcript data
+        const transcript = transcriptData.map(entry => entry.text).join('\n');
+
+        console.log('Transcript retrieved successfully.');
         return transcript;
     } catch (error) {
         console.error(`Error: ${error}`);
@@ -16,7 +19,7 @@ async function getTranscript(videoUrl) {
     }
 }
 
-// Replace 'YOUR_VIDEO_URL' with the URL of the YouTube video you want to download the transcript for
+// Replace 'YOUR_VIDEO_URL' with the URL of the YouTube video you want to retrieve the transcript for
 const videoUrl = 'https://www.youtube.com/watch?v=6G6i8vSa8Zs&ab_channel=TheOrganicChemistryTutor';
 
 getTranscript(videoUrl).then((transcript) => {
