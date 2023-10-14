@@ -1,4 +1,3 @@
-const { YoutubeTranscript } = require('youtube-transcript');
 let transcript;
 
 function animateContainers() {
