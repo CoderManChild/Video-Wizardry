@@ -19,7 +19,6 @@ def download_transcript(video_url, output_file):
     except Exception as e:
         print(f'Error: {e}')
 
-# Replace 'YOUR_VIDEO_URL' with the URL of the YouTube video you want to download the transcript for
 video_url = 'https://www.youtube.com/watch?v=6G6i8vSa8Zs&ab_channel=TheOrganicChemistryTutor'
 output_file = 'transcript.txt'
 
