@@ -1,3 +1,4 @@
+const { YoutubeTranscript } = require('youtube-transcript');
 let transcript;
 
 function animateContainers() {
@@ -21,24 +22,19 @@ function animateButtonContainer() {
          }
 
 
-async function getTranscript() {
-    const videoUrl = document.getElementById("url-textbox").value;
-    try {
-        // Get the video ID from the URL
-        const videoId = videoUrl.split('v=')[1].split('&')[0];
+const { YoutubeTranscript } = require('youtube-transcript');
 
-        // Get the transcript data
-        const transcriptData = await YouTubeTranscriptApi.getTranscript(videoId);
-
-        // Extract the text content from the transcript data
-        const transcript = transcriptData.map(entry => entry.text).join('\n');
-
-        console.log('Transcript retrieved successfully.');
-        return transcript;
-    } catch (error) {
-        console.error(`Error: ${error}`);
-        return null;
-    }
+function getTranscript(videoURL) {
+  return new Promise((resolve, reject) => {
+    YoutubeTranscript.fetchTranscript(videoURL)
+      .then((transcript) => {
+        const transcriptText = transcript.map((entry) => entry.text).join('\n');
+        resolve(transcriptText);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
 }
 
 function processAndAnimate() {
