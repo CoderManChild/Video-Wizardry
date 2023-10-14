@@ -36,7 +36,6 @@ body{
 }
 .wrapper .menu-btn i{
   position: absolute;
-  transform: ;
   font-size: 23px;
   transition: all 0.3s ease;
 }
@@ -201,7 +200,7 @@ body{
     justify-content: center;
     position: relative;
     top: 555px;
-    z-index=2;
+    z-index: 2;
   }
 
 .green-button {
@@ -257,37 +256,3 @@ body{
 .long-button:hover{
   background-color: #00B7A8;
 }
-
-
-/* Add CSS for the glowing gradient border 
-.glow-container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-  border: 3px solid transparent;
-  border-image: linear-gradient(45deg, #ff8000, #ff0080, #8000ff, #0080ff);
-  border-image-slice: 1;
-  border-radius: 10px;
-  animation: glowing 2s infinite;
-}
-
-.glow-container:hover::before {
-  animation: none; 
-}
-
-@keyframes glowing {
-  0% {
-    border-image-source: linear-gradient(45deg, #ff8000, #ff0080, #8000ff, #0080ff);
-  }
-  50% {
-    border-image-source: linear-gradient(45deg, #ff0080, #8000ff, #0080ff, #ff8000);
-  }
-  100% {
-    border-image-source: linear-gradient(45deg, #8000ff, #0080ff, #ff8000, #ff0080);
-  }
-}
-*/
