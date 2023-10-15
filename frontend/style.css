@@ -163,6 +163,12 @@ body{
   font-weight: 800;
 }
 
+.content .margin-small-p{
+  font-size: 23px;
+  margin-left: 40px; 
+  margin-right: 40px; 
+}
+
 /* Add these styles for the text input */
 .textbox-container {
   text-align: center;
