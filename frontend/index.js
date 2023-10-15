@@ -1,9 +1,13 @@
-let transcript;
+let vidUrl; 
 
 function animateContainers() {
             // Hide the text-container
             const textContainer = document.querySelector('.textbox-container');
             textContainer.style.display = 'none';
+
+            //Store video's URL
+            vidUrl = document.getElementById("url-textbox").value;
+            console.log(vidUrl);
 
             // Show the button-container
             const buttonContainer = document.querySelector('.button-container');
@@ -20,23 +24,3 @@ function animateButtonContainer() {
             button3Container.style.display = 'flex';
          }
 
-
-const { YoutubeTranscript } = require('youtube-transcript');
-
-function getTranscript(videoURL) {
-  return new Promise((resolve, reject) => {
-    YoutubeTranscript.fetchTranscript(videoURL)
-      .then((transcript) => {
-        const transcriptText = transcript.map((entry) => entry.text).join('\n');
-        resolve(transcriptText);
-      })
-      .catch((error) => {
-        reject(error);
-      });
-  });
-}
-
-function processAndAnimate() {
-    getTranscript();
-    animateContainers();
-}
